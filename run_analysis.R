@@ -25,7 +25,7 @@ test_data <- cbind(test_data_subject, test_data_y, test_data_x[,selected_feature
 har_data=rbind(train_data, test_data)
 write.table(har_data,file= "har_data.txt")
 # Uses descriptive activity names to name the activities in the data set 
-activity_labels <- read.csv("../UCI HAR Dataset/activity_labels.txt", sep=" ", header=F)
+activity_labels <- read.csv("UCI HAR Dataset/activity_labels.txt", sep=" ", header=F)
 activity_names <- tolower(activity_labels[[2]])
 
 # Appropriately labels the data set with descriptive activity names. 
@@ -37,7 +37,7 @@ levels(har_data[[2]]) <- activity_names
 library(plyr)
 f <- function(x){
   means = vector()
-  for(i in 3:75){
+  for(i in 3:68){
     means <- c(means, mean(x[[i]]))
   }
   means
